@@ -15,6 +15,13 @@ bool G3D::Renderer::Init()
 	//but in the future we could poll all available adapters incase we decided to support DX12 in the future. I don't think
 	//initializing DX12 here instead of DX11 would be a huge deal.
 
+	std::vector<AdapterData> adapters = AdapterReader::GetAdapters();
+	if (adapters.size() < 1)
+	{
+		LOG_FATAL("No DirectX 11 device was found.");
+		return(false);
+	}
+
 	//Create our swap chain buffer description
 	DXGI_MODE_DESC bufferDesc;
 	ZeroMemory(&bufferDesc, sizeof(DXGI_MODE_DESC));

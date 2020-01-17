@@ -1,5 +1,5 @@
 #pragma once
-#ifdef WIN32
+#include "AdapterReader.h"
 #include <D3D11.h>
 #include <D3DX10.h>
 #include <D3DX11.h>
@@ -9,7 +9,7 @@
 #pragma comment(lib, "D3DX10.lib")
 #pragma comment(lib, "D3DX11.lib")
 #pragma comment(lib, "dxguid.lib")
-#endif
+#pragma comment(lib, "DXGI.lib")
 
 template<typename T>
 inline static void SAFE_RELEASE(T& ptr)
