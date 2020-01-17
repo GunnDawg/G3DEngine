@@ -11,14 +11,13 @@ bool G3D::Renderer::Init()
 {
 	HRESULT Result = 0u;
 
-	//@Incomplete Enumerating adapters here is not very fleshed out. We currenly only check for a valid DX11 compatible GPU,
-	//but in the future we could poll all available adapters incase we decided to support DX12 in the future. I don't think
-	//initializing DX12 here instead of DX11 would be a huge deal.
+	//@Incomplete Enumerating adapters here is not very fleshed out. We currenly only check for ANY available adapters.
+	//In the future we should check for DirectX version compatibility, and ONLY initialize that DX version.
 
 	std::vector<AdapterData> adapters = AdapterReader::GetAdapters();
 	if (adapters.size() < 1)
 	{
-		LOG_FATAL("No DirectX 11 device was found.");
+		LOG_FATAL("No video adapters were found.");
 		return(false);
 	}
 
