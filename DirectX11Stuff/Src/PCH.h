@@ -1,9 +1,9 @@
 #pragma once
 
-//Target Win7 and later
-#define WINVER 0x0601
-#define _WIN32_WINNT 0x0601
-#define NTDDI_VERSION 0x0601
+//Target Windows Vista and later
+#define WINVER 0x0600
+#define _WIN32_WINNT 0x0600
+#define NTDDI_VERSION NTDDI_VISTA
 #include <sdkddkver.h>
 
 #define WIN32_LEAN_AND_MEAN
