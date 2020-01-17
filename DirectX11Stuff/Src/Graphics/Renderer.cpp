@@ -4,7 +4,7 @@
 #ifdef _DEBUG
 UINT debugFlags = D3D11_CREATE_DEVICE_DEBUG;
 #else
-UINT flags = 0u;
+UINT debugFlags = 0u;
 #endif
 
 bool G3D::Renderer::Init()
