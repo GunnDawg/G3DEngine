@@ -131,6 +131,8 @@ void Square::Update()
 {
 	HRESULT Result = 0u;
 
+	DirectX::XMMATRIX world = DirectX::XMMatrixIdentity();
+
 	const ConstantBuffer cb =
 	{
 		{

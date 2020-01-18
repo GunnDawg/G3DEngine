@@ -27,7 +27,7 @@ namespace G3D
 			time_t = ms;
 
 			//@Debug uncomment this if for some reason you want the benchmark timer to print when stop is called.
-			//Right now we're just storing it in time_t to make use of it in the logger. Just grab it Peek() for now.
+			//Right now we're just storing it in time_t to make use of it in the logger. Just grab it with Peek() for now.
 			//printf("%f ms\n", ms);
 		}
 
