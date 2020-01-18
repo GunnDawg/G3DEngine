@@ -36,7 +36,7 @@ Triangle::Triangle()
 	Result = G3D::Renderer::Device->CreateBuffer(&bd, &sd, &buffer);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error initialzing triangle!");
+		G3D::LOG_ERROR("Error initialzing triangle!");
 	}
 
 	const UINT stride = sizeof(VERTEX);
@@ -45,19 +45,19 @@ Triangle::Triangle()
 	Result = D3DX11CompileFromFile("Res/Shaders/VertexShader.hlsl", 0u, 0u, "main", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0u, 0u, &vShaderBuffer, 0u, 0u);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error compiling vertex shader!");
+		G3D::LOG_ERROR("Error compiling vertex shader!");
 	}
 
 	Result = D3DX11CompileFromFile("Res/Shaders/PixelShader.hlsl", 0u, 0u, "main", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0u, 0u, &pShaderBuffer, 0u, 0u);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error compiling pixel shader!");
+		G3D::LOG_ERROR("Error compiling pixel shader!");
 	}
 
 	Result = G3D::Renderer::Device->CreateInputLayout(layout, (UINT)std::size(layout), vShaderBuffer->GetBufferPointer(), vShaderBuffer->GetBufferSize(), &inputLayout);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error setting input layout!");
+		G3D::LOG_ERROR("Error setting input layout!");
 	}
 
 	//Renderer::Device->CreateVertexShader(vShaderBuffer->GetBufferPointer(), vShaderBuffer->GetBufferSize(), nullptr, &VertexShader);

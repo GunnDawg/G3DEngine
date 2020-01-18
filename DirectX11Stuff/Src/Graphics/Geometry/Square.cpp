@@ -55,7 +55,7 @@ Square::Square()
 	Result = G3D::Renderer::Device->CreateBuffer(&vbd, &sd, &vertexBuffer);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error initialzing triangle!");
+		G3D::LOG_ERROR("Error initialzing triangle!");
 	}
 
 	D3D11_BUFFER_DESC ibd;
@@ -74,40 +74,40 @@ Square::Square()
 	Result = G3D::Renderer::Device->CreateBuffer(&ibd, &isd, &indexBuffer);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error initialzing triangle!");
+		G3D::LOG_ERROR("Error initialzing triangle!");
 	}
 
 	//Load and compile shader files
 	Result = D3DX11CompileFromFile("Res/Shaders/VertexShader.hlsl", 0u, 0u, "main", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0u, 0u, &vShaderBuffer, 0u, 0u);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error compiling vertex shader!");
+		G3D::LOG_ERROR("Error compiling vertex shader!");
 	}
 
 	Result = D3DX11CompileFromFile("Res/Shaders/PixelShader.hlsl", 0u, 0u, "main", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0u, 0u, &pShaderBuffer, 0u, 0u);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error compiling pixel shader!");
+		G3D::LOG_ERROR("Error compiling pixel shader!");
 	}
 
 	//Create shaders from compiled source
 	Result = G3D::Renderer::Device->CreateVertexShader(vShaderBuffer->GetBufferPointer(), vShaderBuffer->GetBufferSize(), nullptr, &VertexShader);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error creating vertex shader!");
+		G3D::LOG_ERROR("Error creating vertex shader!");
 	}
 
 	Result = G3D::Renderer::Device->CreatePixelShader(pShaderBuffer->GetBufferPointer(), pShaderBuffer->GetBufferSize(), nullptr, &PixelShader);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error creating pixel shader!");
+		G3D::LOG_ERROR("Error creating pixel shader!");
 	}
 
 	//Create the vertex layout 
 	Result = G3D::Renderer::Device->CreateInputLayout(layout, (UINT)std::size(layout), vShaderBuffer->GetBufferPointer(), vShaderBuffer->GetBufferSize(), &inputLayout);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error setting input layout!");
+		G3D::LOG_ERROR("Error setting input layout!");
 	}
 
 	//Set rasterizer state
@@ -121,7 +121,7 @@ Square::Square()
 	Result = G3D::Renderer::Device->CreateRasterizerState(&RastDesc, &G3D::Renderer::RasterizerState);
 	if (FAILED(Result))
 	{
-		LOG_FATAL("Failed to create rasterizer state");
+		G3D::LOG_FATAL("Failed to create rasterizer state");
 	}
 
 	G3D::Renderer::Context->RSSetState(G3D::Renderer::RasterizerState);
@@ -159,7 +159,7 @@ void Square::Update()
 	Result = G3D::Renderer::Device->CreateBuffer(&cbd, &srd, &constantBuffer);
 	if (FAILED(Result))
 	{
-		LOG_ERROR("Error creating constant buffer!");
+		G3D::LOG_ERROR("Error creating constant buffer!");
 	}
 }
 

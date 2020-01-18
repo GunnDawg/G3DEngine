@@ -12,8 +12,8 @@ bool G3D::Renderer::Init()
 	HRESULT Result = 0u;
 
 	//@Incomplete Enumerating adapters here is not very fleshed out. We currenly only check for ANY available adapters.
-	//In the future we should check for DirectX version compatibility, and ONLY initialize that DX version.
-
+	//In the future we should check for DirectX version compatibility, and ONLY initialize that DX version. Currently
+	//DX11 is initialized by default.
 	std::vector<AdapterData> adapters = AdapterReader::GetAdapters();
 	if (adapters.size() < 1)
 	{
@@ -85,7 +85,7 @@ bool G3D::Renderer::Init()
 		return(false);
 	}
 
-	SAFE_RELEASE(BackBuffer);
+	BackBuffer->Release();
 
 	//Create our depth stencil state
 	D3D11_TEXTURE2D_DESC depthStencilDesc;

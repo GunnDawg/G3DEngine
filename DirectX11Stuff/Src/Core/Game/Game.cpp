@@ -19,8 +19,9 @@ Game::~Game()
 
 bool Game::Init(const WNDPROC& wndproc)
 {
-	Benchmarker InitializTimer;
-	if (!Logger::Init())
+	G3D::Benchmarker InitializTimer;
+
+	if (!G3D::Logger::Init())
 	{
 		//We can't really log a message if the logger fails, so we'll let windows handle it for now, and use a message box.
 		MessageBox(0u, "Fatal Error Initializing Logging System!", "Fatal Error", MB_ICONERROR);
@@ -29,19 +30,19 @@ bool Game::Init(const WNDPROC& wndproc)
 
 	if (!Window->Init(wndproc))
 	{
-		LOG_FATAL("Failed to Initialize Window");
+		G3D::LOG_FATAL("Failed to Initialize Window");
 		return(false);
 	}
 
 	if (!Window->Create())
 	{
-		LOG_FATAL("Failed to Create Window!");
+		G3D::LOG_FATAL("Failed to Create Window!");
 		return(false);
 	}
 
 	if (!Renderer->Init())
 	{
-		LOG_FATAL("Failed to Initialize Renderer");
+		G3D::LOG_FATAL("Failed to Initialize Renderer");
 		return(false);
 	}
 
@@ -53,7 +54,7 @@ bool Game::Init(const WNDPROC& wndproc)
 	isRunning = true;
 
 	InitializTimer.Stop();
-	LOG_INFO("Engine Successfully Initialized after {0} ms, or {1} seconds", InitializTimer.Peek(), (InitializTimer.Peek() / 1000));
+	G3D::LOG_INFO("Engine Successfully Initialized after {0} ms, or {1} seconds", InitializTimer.Peek(), (InitializTimer.Peek() / 1000));
 
 	return(true);
 }

@@ -111,7 +111,7 @@ int WINAPI WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdLine, in
 {
 	if (!game->Init(WndProc))
 	{
-		LOG_FATAL("Failed to Initialize Game");
+		G3D::LOG_FATAL("Failed to Initialize Game");
 		MessageBox(0u, "Fatal Error Initializing Game. Please See Log and Restart!", "Fatal Error", MB_ICONERROR);
 
 		return(-1);
@@ -137,7 +137,7 @@ int WINAPI WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdLine, in
 		DeltaClock::EndTickk();
 	}
 
-	LOG_INFO("Engine Shutting Down After Running For {0} Seconds", Game::Timer.Peek());
+	G3D::LOG_INFO("Engine Shutting Down After Running For {0} Seconds", Game::Timer.Peek());
 	game->Shutdown();
 
 	delete game;

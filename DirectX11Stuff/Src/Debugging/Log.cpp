@@ -4,7 +4,7 @@
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 
-bool Logger::Init()
+bool G3D::Logger::Init()
 {
 	spdlog::set_pattern("%^[%T] %n: %v%$");
 

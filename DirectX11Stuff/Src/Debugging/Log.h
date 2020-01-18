@@ -1,18 +1,21 @@
 #pragma once
 #include <spdlog/spdlog.h>
 
-class Logger
+namespace G3D
 {
-public:
-	static bool Init();
 
-	inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return sCoreLogger; }
-	inline static std::shared_ptr<spdlog::logger>& GetFileLogger() { return sFileLogger; }
+	class Logger
+	{
+	public:
+		static bool Init();
 
-private:
-	inline static std::shared_ptr<spdlog::logger> sCoreLogger;
-	inline static std::shared_ptr<spdlog::logger> sFileLogger;
-};
+		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return sCoreLogger; }
+		inline static std::shared_ptr<spdlog::logger>& GetFileLogger() { return sFileLogger; }
+
+	private:
+		inline static std::shared_ptr<spdlog::logger> sCoreLogger;
+		inline static std::shared_ptr<spdlog::logger> sFileLogger;
+	};
 
 #ifdef _DEBUG
 #define LOG_TRACE(...)	Logger::GetCoreLogger()->trace(__VA_ARGS__)
@@ -27,3 +30,4 @@ private:
 #define LOG_ERROR(...)  Logger::GetFileLogger()->error(__VA_ARGS__)
 #define LOG_FATAL(...)  Logger::GetFileLogger()->critical(__VA_ARGS__)
 #endif
+}

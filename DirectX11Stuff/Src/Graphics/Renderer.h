@@ -21,7 +21,7 @@ inline static void SAFE_RELEASE(T& ptr)
 		Result = ptr->Release();
 		if (FAILED(Result))
 		{
-			LOG_ERROR("Failed to release COM object");
+			G3D::LOG_ERROR("Failed to release COM object");
 		}
 
 		ptr = nullptr;
@@ -51,7 +51,7 @@ namespace G3D
 			if (FAILED(Result))
 			{
 				//This should never happen btw, and the few times that it has, it was kind of hard to track down.
-				LOG_FATAL("Failed to present back buffer");
+				G3D::LOG_FATAL("Failed to present back buffer");
 			}
 		}
 

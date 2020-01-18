@@ -22,7 +22,7 @@ void Scene02::Handle_events()
 
 	if (Game::Keyboard.KeyIsPressed('X'))
 	{
-		LOG_INFO("BREAK!");
+		G3D::LOG_INFO("BREAK!");
 	}
 
 	if (Game::Keyboard.KeyIsPressed(VK_LEFT))

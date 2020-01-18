@@ -23,7 +23,7 @@ void Scene01::Handle_events()
 
 	if (Game::Keyboard.KeyIsPressed('X'))
 	{
-		LOG_INFO("BREAK!");
+		G3D::LOG_INFO("BREAK!");
 	}
 
 	if (Game::Keyboard.KeyIsPressed(VK_RIGHT))
@@ -36,7 +36,7 @@ void Scene01::Handle_events()
 	if (Game::Keyboard.KeyIsPressed('D'))
 	{
 		//LOG_INFO("A Was Pressed!");
-		LOG_INFO("{0}", DeltaClock::deltaTime);
+		G3D::LOG_INFO("{0}", DeltaClock::deltaTime);
 	}
 
 	const auto e = Game::Mouse.Read();
@@ -47,22 +47,22 @@ void Scene01::Handle_events()
 
 	if (e.GetType() == G3D::Mouse::Event::Type::LPress)
 	{
-		LOG_INFO("Left Mouse Button Pressed!");
+		G3D::LOG_INFO("Left Mouse Button Pressed!");
 	}
 
 	if (e.GetType() == G3D::Mouse::Event::Type::RPress)
 	{
-		LOG_INFO("Right Mouse Button Pressed!");
+		G3D::LOG_INFO("Right Mouse Button Pressed!");
 	}
 
 	if (e.GetType() == G3D::Mouse::Event::Type::WheelUp)
 	{
-		LOG_INFO("Wheel Up!");
+		G3D::LOG_INFO("Wheel Up!");
 	}
 
 	if (e.GetType() == G3D::Mouse::Event::Type::WheelDown)
 	{
-		LOG_INFO("Wheel Down!");
+		G3D::LOG_INFO("Wheel Down!");
 	}
 }
 
