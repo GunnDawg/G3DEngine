@@ -3,6 +3,7 @@
 #include "Core/Window/Win32Window.h"
 #include "Core/GameState/StateMachine.h"
 #include "Graphics/Renderer.h"
+#include "Input/Camera.h"
 #include "Input/Keyboard.h"
 #include "Input/Mouse.h"
 #include "Time/Timer.h"
@@ -60,6 +61,7 @@ struct Game
 	G3D::Window* Window = new G3D::Window();
 	G3D::Renderer* Renderer = new G3D::Renderer();
 
+	inline static G3D::Camera Camera;
 	inline static G3D::Keyboard Keyboard;
 	inline static G3D::Mouse Mouse;
 	inline static G3D::GameStateMachine GSM;
