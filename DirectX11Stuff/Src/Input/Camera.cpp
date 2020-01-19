@@ -3,7 +3,7 @@
 
 using namespace DirectX;
 
-Camera::Camera()
+G3D::Camera::Camera()
 {
 	mPos = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
 	mPosVector = DirectX::XMLoadFloat3(&mPos);
@@ -13,13 +13,13 @@ Camera::Camera()
 	UpdateViewMatrix();
 }
 
-void Camera::SetProjectionValues(float fovDegrees, float aspectRatio, float nearZ, float farZ)
+void G3D::Camera::SetProjectionValues(float fovDegrees, float aspectRatio, float nearZ, float farZ)
 {
 	float fovRadians = (fovDegrees / 360.0f) * DirectX::XM_2PI;
 	mProjectionMatrix = DirectX::XMMatrixPerspectiveFovLH(fovRadians, aspectRatio, nearZ, farZ);
 }
 
-void Camera::SetPosition(const DirectX::XMVECTOR& pos)
+void G3D::Camera::SetPosition(const DirectX::XMVECTOR& pos)
 {
 	DirectX::XMStoreFloat3(&mPos, pos);
 	mPosVector = pos;
@@ -27,7 +27,7 @@ void Camera::SetPosition(const DirectX::XMVECTOR& pos)
 	UpdateViewMatrix();
 }
 
-void Camera::SetPosition(float x, float y, float z)
+void G3D::Camera::SetPosition(float x, float y, float z)
 {
 	mPos = DirectX::XMFLOAT3(x, y, z);
 	mPosVector = DirectX::XMLoadFloat3(&mPos);
@@ -35,7 +35,7 @@ void Camera::SetPosition(float x, float y, float z)
 	UpdateViewMatrix();
 }
 
-void Camera::AdjustPosition(const DirectX::XMVECTOR& pos)
+void G3D::Camera::AdjustPosition(const DirectX::XMVECTOR& pos)
 {
 	mPosVector += pos;
 	DirectX::XMStoreFloat3(&mPos, mPosVector);
@@ -43,7 +43,7 @@ void Camera::AdjustPosition(const DirectX::XMVECTOR& pos)
 	UpdateViewMatrix();
 }
 
-void Camera::AdjustPosition(float x, float y, float z)
+void G3D::Camera::AdjustPosition(float x, float y, float z)
 {
 	mPos.x += x;
 	mPos.y += y;
@@ -53,7 +53,7 @@ void Camera::AdjustPosition(float x, float y, float z)
 	UpdateViewMatrix();
 }
 
-void Camera::SetRotation(const DirectX::XMVECTOR& rot)
+void G3D::Camera::SetRotation(const DirectX::XMVECTOR& rot)
 {
 	mRotVector = rot;
 	DirectX::XMStoreFloat3(&mRot, rot);
@@ -61,7 +61,7 @@ void Camera::SetRotation(const DirectX::XMVECTOR& rot)
 	UpdateViewMatrix();
 }
 
-void Camera::SetRotation(float x, float y, float z)
+void G3D::Camera::SetRotation(float x, float y, float z)
 {
 	mRot = DirectX::XMFLOAT3(x, y, z);
 	mRotVector = DirectX::XMLoadFloat3(&mRot);
@@ -69,7 +69,7 @@ void Camera::SetRotation(float x, float y, float z)
 	UpdateViewMatrix();
 }
 
-void Camera::AdjustRotation(const DirectX::XMVECTOR& rot)
+void G3D::Camera::AdjustRotation(const DirectX::XMVECTOR& rot)
 {
 	mRotVector += rot;
 	DirectX::XMStoreFloat3(&mRot, mRotVector);
@@ -77,7 +77,7 @@ void Camera::AdjustRotation(const DirectX::XMVECTOR& rot)
 	UpdateViewMatrix();
 }
 
-void Camera::AdjustRotation(float x, float y, float z)
+void G3D::Camera::AdjustRotation(float x, float y, float z)
 {
 	mRot.x += x;
 	mRot.y += y;
@@ -87,7 +87,7 @@ void Camera::AdjustRotation(float x, float y, float z)
 	UpdateViewMatrix();
 }
 
-void Camera::UpdateViewMatrix()
+void G3D::Camera::UpdateViewMatrix()
 {
 	//Calculate camera rotation matrix
 	DirectX::XMMATRIX camRotationMatrix = DirectX::XMMatrixRotationRollPitchYaw(mRot.x, mRot.y, mRot.z);

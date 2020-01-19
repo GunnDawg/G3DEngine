@@ -3,6 +3,7 @@
 #include "Core/Window/Win32Window.h"
 #include "Core/GameState/StateMachine.h"
 #include "Graphics/Renderer.h"
+#include "Input/Camera.h"
 #include "Input/Keyboard.h"
 #include "Input/Mouse.h"
 #include "Time/Timer.h"
@@ -64,6 +65,7 @@ struct Game
 	inline static G3D::Mouse Mouse;
 	inline static G3D::GameStateMachine GSM;
 	inline static G3D::Timer Timer;
+	inline static G3D::Camera Camera;
 
 private:
 	inline static bool isRunning = false;
