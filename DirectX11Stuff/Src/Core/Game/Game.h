@@ -66,6 +66,7 @@ struct Game
 	inline static G3D::Mouse Mouse;
 	inline static G3D::GameStateMachine GSM;
 	inline static G3D::Timer Timer;
+	inline static G3D::Camera Camera;
 
 private:
 	inline static bool isRunning = false;
