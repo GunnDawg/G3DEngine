@@ -103,7 +103,7 @@ Square::Square()
 		G3D::LOG_ERROR("Error creating pixel shader!");
 	}
 
-	//Create the vertex layout 
+	//Create the vertex layout
 	Result = G3D::Renderer::Device->CreateInputLayout(layout, (UINT)std::size(layout), vShaderBuffer->GetBufferPointer(), vShaderBuffer->GetBufferSize(), &inputLayout);
 	if (FAILED(Result))
 	{
@@ -156,7 +156,7 @@ void Square::Update()
 	cbd.Usage = D3D11_USAGE_DYNAMIC;
 	cbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	cbd.MiscFlags = 0u;
-	cbd.ByteWidth = sizeof(cb2);
+	cbd.ByteWidth = sizeof(cb);
 	cbd.StructureByteStride = 0u;
 
 	static D3D11_SUBRESOURCE_DATA srd;

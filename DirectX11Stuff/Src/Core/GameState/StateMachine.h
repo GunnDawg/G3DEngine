@@ -1,15 +1,19 @@
 #pragma once
+
 #include "GameState.h"
 #include "Graphics/Renderer.h"
 
 namespace G3D
+
 {
 	class GameStateMachine
+
 	{
 	public:
 		inline void Push(std::unique_ptr<GameState> states)
 		{
 			//@Speed I haven't tested it yet but I think emplace_back() is faster than push_back() here. Maybe run
+
 			//a test later. Probably not a huge difference either way though.
 			mGameStates.emplace_back(std::move(states));
 			mGameStates.back()->On_enter();

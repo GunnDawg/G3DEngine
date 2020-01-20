@@ -19,6 +19,7 @@ bool G3D::Window::Init(const WNDPROC& wndproc)
 	}
 
 	//Get users current screen resolution and set the window to that size. Although something in DirectX is making use of this
+
 	//value in GameSettings.h, which means we still have to set a default value there, which is annoying.
 	GameSettings::Display::Width = GetSystemMetrics(SM_CXSCREEN);
 	GameSettings::Display::Height = GetSystemMetrics(SM_CYSCREEN);

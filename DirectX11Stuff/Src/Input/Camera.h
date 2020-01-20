@@ -1,41 +1,50 @@
 #pragma once
+
 #include <DirectXMath.h>
 
 namespace G3D
+
 {
 
 	class Camera
+
 	{
 	public:
 		Camera();
 		void SetProjectionValues(float fovDegrees, float aspectRatio, float nearZ, float farZ);
 
 		inline const DirectX::XMMATRIX& GetViewMatrix() const
+
 		{
 			return mViewMatrix;
 		}
 
 		inline const DirectX::XMMATRIX& GetProjectionMatrix() const
+
 		{
 			return mProjectionMatrix;
 		}
 
 		inline const DirectX::XMVECTOR& GetPositionVector() const
+
 		{
 			return mPosVector;
 		}
 
 		inline const DirectX::XMFLOAT3& GetPositionFloat3() const
+
 		{
 			return mPos;
 		}
 
 		inline const DirectX::XMVECTOR& GetRotationVector() const
+
 		{
 			return mRotVector;
 		}
 
 		inline const DirectX::XMFLOAT3& GetRotationFloat3() const
+
 		{
 			return mRot;
 		}
