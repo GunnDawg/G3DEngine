@@ -5,8 +5,8 @@
 
 void Scene01::On_enter()
 {
-	Game::Camera.SetPosition(0.0f, 0.0f, 0.5f);
-	Game::Camera.SetProjectionValues(90.0f, (static_cast<float>(GameSettings::Display::Width) / static_cast<float>(GameSettings::Display::Height)), 0.1f, 1.0f);
+	Game::Camera.SetPosition(0.0f, 0.0f, 1.0f);
+	Game::Camera.SetProjectionValues(90.0f, (static_cast<float>(GameSettings::Display::Width) / static_cast<float>(GameSettings::Display::Height)), 0.1f, 10.0f);
 }
 
 void Scene01::On_exit()
@@ -34,10 +34,24 @@ void Scene01::Handle_events()
 		Game::GSM.Push(std::move(S2));
 	}
 
+	if (Game::Keyboard.KeyIsPressed('A'))
+	{
+		Game::Camera.AdjustPosition(-0.1f, 0.0f, 0.0f);
+	}
+
 	if (Game::Keyboard.KeyIsPressed('D'))
 	{
-		//LOG_INFO("A Was Pressed!");
-		G3D::LOG_INFO("{0}", DeltaClock::deltaTime);
+		Game::Camera.AdjustPosition(0.1f, 0.0f, 0.0f);
+	}
+
+	if (Game::Keyboard.KeyIsPressed('W'))
+	{
+		Game::Camera.AdjustPosition(0.f, 0.0f, 0.1f);
+	}
+
+	if (Game::Keyboard.KeyIsPressed('S'))
+	{
+		Game::Camera.AdjustPosition(0.f, 0.0f, -0.1f);
 	}
 
 	const auto e = Game::Mouse.Read();

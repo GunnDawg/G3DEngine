@@ -141,7 +141,8 @@ void Square::Update()
 		)
 	};
 
-	DirectX::XMMATRIX world = DirectX::XMMatrixIdentity();
+	DirectX::XMMATRIX world = DirectX::XMMatrixRotationY(Game::Timer.Peek()) *
+		DirectX::XMMatrixTranslation(0.0f, 0.0f, 4.0f);
 
 	const CameraConstantBuffer cb2 =
 	{
@@ -156,12 +157,12 @@ void Square::Update()
 	cbd.Usage = D3D11_USAGE_DYNAMIC;
 	cbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	cbd.MiscFlags = 0u;
-	cbd.ByteWidth = sizeof(cb);
+	cbd.ByteWidth = sizeof(cb2);
 	cbd.StructureByteStride = 0u;
 
 	static D3D11_SUBRESOURCE_DATA srd;
 	ZeroMemory(&srd, sizeof(D3D11_SUBRESOURCE_DATA));
-	srd.pSysMem = &cb;
+	srd.pSysMem = &cb2;
 
 	Result = G3D::Renderer::Device->CreateBuffer(&cbd, &srd, &constantBuffer);
 	if (FAILED(Result))

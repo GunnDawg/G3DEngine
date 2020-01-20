@@ -91,20 +91,20 @@ void G3D::Camera::UpdateViewMatrix()
 {
 	//Calculate camera rotation matrix
 
-	DirectX::XMMATRIX camRotationMatrix = DirectX::XMMatrixRotationRollPitchYaw(mRot.x, mRot.y, mRot.z);
+	DirectX::XMMATRIX camRotationMatrix = DirectX::XMMatrixRotationRollPitchYaw(-mRot.x, -mRot.y, -mRot.z);
 
 	//Calculate unit vector of cam target based off camera forward value transformed by cam rotation.
 	DirectX::XMVECTOR camTarget = DirectX::XMVector3TransformCoord(DEFAULT_FORWARD_VECTOR, camRotationMatrix);
 
 	//Adjust cam target to be offset by the cameras current position
 
-	camTarget += mPosVector;
+	camTarget -= mPosVector;
 
 	//Calculate up direction based on current rotation
 
 	DirectX::XMVECTOR upDir = DirectX::XMVector3TransformCoord(DEFAULT_UP_VECTOR, camRotationMatrix);
-	
+
 	//Rebuild view matrix
 
-	mViewMatrix = DirectX::XMMatrixLookAtLH(mPosVector, camTarget, upDir);
+	mViewMatrix = DirectX::XMMatrixLookToLH(mPosVector, DEFAULT_FORWARD_VECTOR, DEFAULT_UP_VECTOR);
 }
