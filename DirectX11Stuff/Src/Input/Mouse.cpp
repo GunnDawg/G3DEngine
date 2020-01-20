@@ -10,6 +10,7 @@ G3D::Mouse::Event G3D::Mouse::Read()
 		return e;
 	}
 	else
+
 	{
 		return Mouse::Event();
 	}

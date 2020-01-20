@@ -1,4 +1,5 @@
 #pragma once
+
 #include "AdapterReader.h"
 #include <D3D11.h>
 #include <D3DX10.h>
@@ -29,15 +30,18 @@ inline static void SAFE_RELEASE(T& ptr)
 }
 
 namespace G3D
+
 {
 
 	class Renderer
+
 	{
 	public:
 		bool Init();
 
 		//I feel like these are small enough to be inlined.
 		inline void Clear(DirectX::XMFLOAT4 color) const
+
 		{
 			const float clearColor[4] = { color.x, color.y, color.z, color.w };
 			Context->ClearRenderTargetView(RenderTargetView, clearColor);
@@ -45,6 +49,7 @@ namespace G3D
 		}
 
 		inline void Present(bool vSync) const
+
 		{
 			HRESULT Result = 0u;
 			Result = SwapChain->Present(vSync, 0u);
@@ -58,16 +63,19 @@ namespace G3D
 		void Shutdown();
 
 		//Basic DirectX
+
 		inline static ID3D11Device* Device = nullptr;
 		inline static ID3D11DeviceContext* Context = nullptr;
 		inline static ID3D11RasterizerState* RasterizerState = nullptr;
 
 	private:
 		//Basic DirectX
+
 		IDXGISwapChain* SwapChain = nullptr;
 		ID3D11RenderTargetView* RenderTargetView = nullptr;
 
 		//Depth Stencil
+
 		ID3D11DepthStencilState* DepthStencilState = nullptr;
 		ID3D11Texture2D* DepthStencilBuffer = nullptr;
 		ID3D11DepthStencilView* DepthStencilView = nullptr;

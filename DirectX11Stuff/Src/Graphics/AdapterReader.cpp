@@ -9,6 +9,7 @@ std::vector<AdapterData> AdapterReader::GetAdapters()
 	IDXGIFactory* pFactory = nullptr;
 
 	//Create DXGIFactory Object
+
 	HRESULT Result = 0;
 	Result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&pFactory);
 	if (FAILED(Result))
