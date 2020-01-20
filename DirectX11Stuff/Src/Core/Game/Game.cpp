@@ -45,6 +45,19 @@ bool Game::Init(const WNDPROC& wndproc)
 		return(false);
 	}
 
+	RAWINPUTDEVICE rid;
+
+	rid.usUsagePage = 0x01;
+	rid.usUsage = 0x02;
+	rid.dwFlags = 0u;
+	rid.hwndTarget = 0u;
+
+	if (RegisterRawInputDevices(&rid, 1, sizeof(rid)) == FALSE)
+	{
+		G3D::LOG_FATAL("Failed to register raw input device");
+		return(false);
+	}
+
 	DeltaClock::Init();
 
 	std::unique_ptr<GameState> S1 = std::make_unique<Scene01>();

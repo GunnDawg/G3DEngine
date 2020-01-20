@@ -41,19 +41,31 @@ void Scene01::Handle_events()
 
 	if (Game::Keyboard.KeyIsPressed('W'))
 	{
-		Game::Camera.AdjustPosition(0.f, 0.0f, 0.1f);
+		Game::Camera.AdjustPosition(0.0f, 0.0f, 0.1f);
 	}
 
 	if (Game::Keyboard.KeyIsPressed('S'))
 	{
-		Game::Camera.AdjustPosition(0.f, 0.0f, -0.1f);
+		Game::Camera.AdjustPosition(0.0f, 0.0f, -0.1f);
 	}
 
 	const auto e = Game::Mouse.Read();
-	//if (e.GetType() == Mouse::Event::Type::Move)
-	//{
-	//	LOG_INFO("X:{0} Y:{1}", e.GetPosX(), e.GetPosY());
-	//}
+	if (e.GetType() == G3D::Mouse::Event::Type::Move)
+	{
+		
+	}
+
+	if (e.GetType() == G3D::Mouse::Event::Type::RAW_MOVE)
+	{
+		//std::string outmsg = "X: ";
+		//outmsg += std::to_string(e.GetPosX());
+		//outmsg += ", ";
+		//outmsg += "Y: ";
+		//outmsg += std::to_string(e.GetPosY());
+		//outmsg += "\n";
+		//OutputDebugStringA(outmsg.c_str());
+		Game::Camera.AdjustRotation((float)e.GetPosY() * 0.1f, (float)e.GetPosX() * 0.1f, 0.0f);
+	}
 
 	if (e.GetType() == G3D::Mouse::Event::Type::LPress)
 	{

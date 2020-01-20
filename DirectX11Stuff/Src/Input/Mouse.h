@@ -24,6 +24,7 @@ namespace G3D
 				WheelUp,
 				WheelDown,
 				Move,
+				RAW_MOVE,
 				Enter,
 				Leave,
 				Invalid
@@ -78,7 +79,8 @@ namespace G3D
 		inline bool IsEmpty() const { return buffer.empty(); }
 		inline void Flush() { buffer = std::queue<Event>(); }
 
-		void OnMouseMove(u16 x, u16 y);
+		void OnMouseMove(u16 newX, u16 newY);
+		void OnMouseMoveRaw(u16 newX, u16 newY);
 		inline void OnMouseLeave()
 		{
 			isInWindow = false;

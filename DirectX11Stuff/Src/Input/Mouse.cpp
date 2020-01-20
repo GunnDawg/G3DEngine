@@ -24,3 +24,9 @@ void G3D::Mouse::OnMouseMove(u16 newX, u16 newY)
 	buffer.push(Mouse::Event(Mouse::Event::Type::Move, *this));
 	TrimBuffer();
 }
+
+void G3D::Mouse::OnMouseMoveRaw(u16 newX, u16 newY)
+{
+	buffer.push(Mouse::Event(Mouse::Event::Type::RAW_MOVE, *this));
+	TrimBuffer();
+}
