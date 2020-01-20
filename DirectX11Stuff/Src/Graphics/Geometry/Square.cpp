@@ -12,15 +12,15 @@ Square::Square()
 	{
 		//Back Face
 		{-1.0f, -1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
-		{ 1.0f, -1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
-		{-1.0f,  1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
-		{ 1.0f,  1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
+		{ 1.0f, -1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 1.0f, 1.0f)},
+		{-1.0f,  1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 1.0f, 0.0f, 1.0f)},
+		{ 1.0f,  1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f)},
 
 		//Front Face
 		{-1.0f, -1.0f,  1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
-		{ 1.0f, -1.0f,  1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
-		{-1.0f,  1.0f,  1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
-		{ 1.0f,  1.0f,  1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)}
+		{ 1.0f, -1.0f,  1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 1.0f, 1.0f)},
+		{-1.0f,  1.0f,  1.0f, DirectX::XMFLOAT4(1.0f, 1.0f, 0.0f, 1.0f)},
+		{ 1.0f,  1.0f,  1.0f, DirectX::XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f)}
 	};
 
 	const u16 indices[] =
