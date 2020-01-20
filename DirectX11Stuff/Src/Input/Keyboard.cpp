@@ -10,6 +10,7 @@ G3D::Keyboard::Event G3D::Keyboard::ReadKey()
 		return(e);
 	}
 	else
+
 	{
 		return(Keyboard::Event());
 	}
@@ -25,6 +26,7 @@ u16 G3D::Keyboard::ReadChar()
 		return(charcode);
 	}
 	else
+
 	{
 		return(0);
 	}

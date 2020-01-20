@@ -1,8 +1,11 @@
 #pragma once
 
+
 namespace G3D
+
 {
 	class Window
+
 	{
 	public:
 		bool Init(const WNDPROC& wndproc);

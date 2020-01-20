@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "Core/Window/Win32Window.h"
 #include "Core/GameState/StateMachine.h"
 #include "Graphics/Renderer.h"
@@ -11,6 +12,7 @@
 #include "Scenes/Scene01.h"
 
 struct Game
+
 {
 	Game() = default;
 	~Game();
@@ -22,16 +24,19 @@ struct Game
 	//@Speed I don't even know if inlining these actually helps us here, I probably should have benchmarked it FIRST.
 	//Maybe do that soon.
 	inline void HandleInput() const
+
 	{
 		GSM.HandleEvents();
 	}
 
 	inline void Update() const
+
 	{
 		GSM.Update();
 	}
 
 	inline void Render() const
+
 	{
 		Renderer->Clear(DirectX::XMFLOAT4(0.0f, 0.0f, 0.0f, 1.0f));
 		GSM.Render(Renderer);
@@ -39,6 +44,7 @@ struct Game
 	}
 
 	inline void Shutdown() const
+
 	{
 		GSM.UnloadAll();
 		Renderer->Shutdown();
@@ -46,7 +52,9 @@ struct Game
 	}
 
 	//@Cleanup The only reason I'm using a setter method() here is because I plan(nned?) on doing
+
 	//more than just setting isRunning to false. If that never happens then this can be deleted
+
 	//and just make public access to 'isRunning'
 	inline static void Close()
 	{

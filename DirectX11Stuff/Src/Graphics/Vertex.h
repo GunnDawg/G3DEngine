@@ -1,7 +1,9 @@
 #pragma once
+
 #include <DirectXMath.h>
 
 struct VERTEX
+
 {
 	VERTEX() = default;
 	VERTEX(const VERTEX&) = delete;

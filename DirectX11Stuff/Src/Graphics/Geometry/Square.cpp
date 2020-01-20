@@ -103,7 +103,7 @@ Square::Square()
 		G3D::LOG_ERROR("Error creating pixel shader!");
 	}
 
-	//Create the vertex layout 
+	//Create the vertex layout
 	Result = G3D::Renderer::Device->CreateInputLayout(layout, (UINT)std::size(layout), vShaderBuffer->GetBufferPointer(), vShaderBuffer->GetBufferSize(), &inputLayout);
 	if (FAILED(Result))
 	{
