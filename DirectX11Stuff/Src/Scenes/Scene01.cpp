@@ -5,8 +5,8 @@
 
 void Scene01::On_enter()
 {
-	Game::Camera.SetPosition(0.0f, 0.0f, -2.0f);
-	Game::Camera.SetProjectionValues(90.0f, static_cast<float>(GameSettings::Display::Width) / static_cast<float>(GameSettings::Display::Height), 0.1f, 1.0f);
+	Game::Camera.SetPosition(0.0f, 0.0f, 0.5f);
+	Game::Camera.SetProjectionValues(90.0f, (static_cast<float>(GameSettings::Display::Width) / static_cast<float>(GameSettings::Display::Height)), 0.1f, 1.0f);
 }
 
 void Scene01::On_exit()

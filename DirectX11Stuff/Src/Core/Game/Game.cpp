@@ -1,6 +1,5 @@
 #include "PCH.h"
 #include "Core/Game/Game.h"
-#include <DirectXMath.h>
 
 Game::~Game()
 {

@@ -131,18 +131,23 @@ void Square::Update()
 {
 	HRESULT Result = 0u;
 
-	DirectX::XMMATRIX world = DirectX::XMMatrixIdentity();
-
 	const ConstantBuffer cb =
 	{
-		{
-			DirectX::XMMatrixTranspose
-			(
-				DirectX::XMMatrixRotationY(Game::Timer.Peek()) *
-				DirectX::XMMatrixTranslation(0.0f, 0.0f, 4.0f) *
-				DirectX::XMMatrixPerspectiveLH(1.0f, 9.0f / 16.0f, 0.5f, 10.0f)
-			)
-		}
+		DirectX::XMMatrixTranspose
+		(
+			DirectX::XMMatrixRotationY(Game::Timer.Peek()) *
+			DirectX::XMMatrixTranslation(0.0f, 0.0f, 4.0f) *
+			DirectX::XMMatrixPerspectiveLH(1.0f, 9.0f / 16.0f, 0.5f, 10.0f)
+		)
+	};
+
+	DirectX::XMMATRIX world = DirectX::XMMatrixIdentity();
+
+	CameraConstantBuffer cb2 =
+	{
+		world,
+		Game::Camera.GetViewMatrix(),
+		Game::Camera.GetProjectionMatrix()
 	};
 
 	static D3D11_BUFFER_DESC cbd;
@@ -151,12 +156,12 @@ void Square::Update()
 	cbd.Usage = D3D11_USAGE_DYNAMIC;
 	cbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	cbd.MiscFlags = 0u;
-	cbd.ByteWidth = sizeof(cb);
+	cbd.ByteWidth = sizeof(cb2);
 	cbd.StructureByteStride = 0u;
 
 	static D3D11_SUBRESOURCE_DATA srd;
 	ZeroMemory(&srd, sizeof(D3D11_SUBRESOURCE_DATA));
-	srd.pSysMem = &cb;
+	srd.pSysMem = &cb2;
 
 	Result = G3D::Renderer::Device->CreateBuffer(&cbd, &srd, &constantBuffer);
 	if (FAILED(Result))
@@ -164,7 +169,6 @@ void Square::Update()
 		G3D::LOG_ERROR("Error creating constant buffer!");
 	}
 }
-
 
 void Square::Render()
 {

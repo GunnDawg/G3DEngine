@@ -5,6 +5,13 @@ struct ConstantBuffer
 	DirectX::XMMATRIX transform;
 };
 
+struct CameraConstantBuffer
+{
+	DirectX::XMMATRIX worldMatrix;
+	DirectX::XMMATRIX viewMatrix;
+	DirectX::XMMATRIX projMatrix;
+};
+
 struct Square
 {
 	Square();
