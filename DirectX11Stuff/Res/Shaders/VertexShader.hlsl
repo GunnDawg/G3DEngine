@@ -21,7 +21,7 @@ VSOut main( float4 pos : POSITION, float4 color : COLOR )
     matrix camera = worldMatrix * viewMatrix * projMatrix;
 	
 	VSOut vso;
-    vso.pos = mul(pos, camera);
+    vso.pos = mul(pos, transform);
 	vso.color = color;
 
 	return vso;

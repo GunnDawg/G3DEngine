@@ -11,10 +11,10 @@ Square::Square()
 	const VERTEX vertices[] =
 	{
 		//Back Face
-		{-1.0f, -1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
-		{ 1.0f, -1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 1.0f, 1.0f)},
-		{-1.0f,  1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 1.0f, 0.0f, 1.0f)},
-		{ 1.0f,  1.0f, -1.0f, DirectX::XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f)},
+		{-1.0f, -1.0f, -1.0f, DirectX::XMFLOAT4(0.0f, 0.0f, 0.0f, 1.0f)},
+		{ 1.0f, -1.0f, -1.0f, DirectX::XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f)},
+		{-1.0f,  1.0f, -1.0f, DirectX::XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f)},
+		{ 1.0f,  1.0f, -1.0f, DirectX::XMFLOAT4(0.0f, 1.0f, 1.0f, 1.0f)},
 
 		//Front Face
 		{-1.0f, -1.0f,  1.0f, DirectX::XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f)},
@@ -143,7 +143,7 @@ void Square::Update()
 
 	DirectX::XMMATRIX world = DirectX::XMMatrixIdentity();
 
-	CameraConstantBuffer cb2 =
+	const CameraConstantBuffer cb2 =
 	{
 		world,
 		Game::Camera.GetViewMatrix(),
@@ -156,12 +156,12 @@ void Square::Update()
 	cbd.Usage = D3D11_USAGE_DYNAMIC;
 	cbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	cbd.MiscFlags = 0u;
-	cbd.ByteWidth = sizeof(cb2);
+	cbd.ByteWidth = sizeof(cb);
 	cbd.StructureByteStride = 0u;
 
 	static D3D11_SUBRESOURCE_DATA srd;
 	ZeroMemory(&srd, sizeof(D3D11_SUBRESOURCE_DATA));
-	srd.pSysMem = &cb2;
+	srd.pSysMem = &cb;
 
 	Result = G3D::Renderer::Device->CreateBuffer(&cbd, &srd, &constantBuffer);
 	if (FAILED(Result))
