@@ -4,10 +4,7 @@ struct VSOut
 	float4 pos : SV_POSITION;
 };
 
-cbuffer CBuffer
-{
-    matrix transform;
-};
+
 
 cbuffer CameraBuffer
 {

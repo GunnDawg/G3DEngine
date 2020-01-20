@@ -52,9 +52,7 @@ struct Game
 	}
 
 	//@Cleanup The only reason I'm using a setter method() here is because I plan(nned?) on doing
-
 	//more than just setting isRunning to false. If that never happens then this can be deleted
-
 	//and just make public access to 'isRunning'
 	inline static void Close()
 	{

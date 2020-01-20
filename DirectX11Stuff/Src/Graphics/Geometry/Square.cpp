@@ -131,20 +131,9 @@ void Square::Update()
 {
 	HRESULT Result = 0u;
 
-	const ConstantBuffer cb =
-	{
-		DirectX::XMMatrixTranspose
-		(
-			DirectX::XMMatrixRotationY(Game::Timer.Peek()) *
-			DirectX::XMMatrixTranslation(0.0f, 0.0f, 4.0f) *
-			DirectX::XMMatrixPerspectiveLH(1.0f, 9.0f / 16.0f, 0.5f, 10.0f)
-		)
-	};
+	DirectX::XMMATRIX world = DirectX::XMMatrixRotationY(Game::Timer.Peek()) * DirectX::XMMatrixTranslation(0.0f, 0.0f, 4.0f);
 
-	DirectX::XMMATRIX world = DirectX::XMMatrixRotationY(Game::Timer.Peek()) *
-		DirectX::XMMatrixTranslation(0.0f, 0.0f, 4.0f);
-
-	const CameraConstantBuffer cb2 =
+	const CameraConstantBuffer cb =
 	{
 		world,
 		Game::Camera.GetViewMatrix(),
@@ -157,12 +146,12 @@ void Square::Update()
 	cbd.Usage = D3D11_USAGE_DYNAMIC;
 	cbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	cbd.MiscFlags = 0u;
-	cbd.ByteWidth = sizeof(cb2);
+	cbd.ByteWidth = sizeof(cb);
 	cbd.StructureByteStride = 0u;
 
 	static D3D11_SUBRESOURCE_DATA srd;
 	ZeroMemory(&srd, sizeof(D3D11_SUBRESOURCE_DATA));
-	srd.pSysMem = &cb2;
+	srd.pSysMem = &cb;
 
 	Result = G3D::Renderer::Device->CreateBuffer(&cbd, &srd, &constantBuffer);
 	if (FAILED(Result))

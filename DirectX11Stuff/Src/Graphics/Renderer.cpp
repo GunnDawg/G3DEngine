@@ -16,7 +16,6 @@ bool G3D::Renderer::Init()
 
 	//@Incomplete Enumerating adapters here is not very fleshed out. We currenly only check for ANY available adapters.
 	//In the future we should check for DirectX version compatibility, and ONLY initialize that DX version. Currently
-
 	//DX11 is initialized by default.
 	std::vector<AdapterData> adapters = AdapterReader::GetAdapters();
 	if (adapters.size() < 1)
@@ -26,7 +25,6 @@ bool G3D::Renderer::Init()
 	}
 
 	//Create our swap chain buffer description
-
 	DXGI_MODE_DESC bufferDesc;
 	ZeroMemory(&bufferDesc, sizeof(DXGI_MODE_DESC));
 	bufferDesc.Width = GameSettings::Display::Width;
@@ -36,7 +34,6 @@ bool G3D::Renderer::Init()
 	bufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
 
 	//Create swap chain description
-
 	DXGI_SWAP_CHAIN_DESC scd;
 	ZeroMemory(&scd, sizeof(DXGI_SWAP_CHAIN_DESC));
 	scd.BufferDesc = bufferDesc;
@@ -50,7 +47,6 @@ bool G3D::Renderer::Init()
 	scd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
 	//Create our swap chain and device
-
 	Result = D3D11CreateDeviceAndSwapChain(
 		nullptr,
 		D3D_DRIVER_TYPE_HARDWARE,
@@ -72,12 +68,9 @@ bool G3D::Renderer::Init()
 	}
 
 	//Name our swapchain for debug purposes later
-
 	//const char* swap_chain_name = "SwapChain";
 	//SwapChain->SetPrivateData(WKPDID_D3DDebugObjectName, sizeof(swap_chain_name), swap_chain_name);
-
 	//Create our BackBuffer
-
 	ID3D11Texture2D* BackBuffer;
 	Result = SwapChain->GetBuffer(0u, __uuidof(ID3D11Texture2D), (void**)& BackBuffer);
 	if (FAILED(Result))
@@ -87,7 +80,6 @@ bool G3D::Renderer::Init()
 	}
 
 	//Create our Render Target
-
 	Result = Device->CreateRenderTargetView(BackBuffer, NULL, &RenderTargetView);
 	if (FAILED(Result))
 	{
@@ -98,7 +90,6 @@ bool G3D::Renderer::Init()
 	BackBuffer->Release();
 
 	//Create our depth stencil state
-
 	D3D11_TEXTURE2D_DESC depthStencilDesc;
 	ZeroMemory(&depthStencilDesc, sizeof(D3D11_TEXTURE2D_DESC));
 	depthStencilDesc.Width = GameSettings::Display::Width;
@@ -162,7 +153,6 @@ bool G3D::Renderer::Init()
 	Context->OMSetDepthStencilState(DepthStencilState, 1u);
 
 	//Set Default Rasterizer State
-
 	D3D11_RASTERIZER_DESC RastDesc;
 	ZeroMemory(&RastDesc, sizeof(D3D11_RASTERIZER_DESC));
 	RastDesc.FillMode = D3D11_FILL_SOLID;
@@ -180,7 +170,6 @@ bool G3D::Renderer::Init()
 	Context->RSSetState(RasterizerState);
 
 	//Create our viewport
-
 	D3D11_VIEWPORT viewport;
 	ZeroMemory(&viewport, sizeof(D3D11_VIEWPORT));
 	viewport.Width = GameSettings::Display::Width;
@@ -196,7 +185,6 @@ bool G3D::Renderer::Init()
 }
 
 //@Speed Test this against the inline method to see which is faster
-
 //void Renderer::Clear(DirectX::XMFLOAT4 color)
 //{
 //	const float clearColor[4] = {color.x, color.y, color.z, color.w};

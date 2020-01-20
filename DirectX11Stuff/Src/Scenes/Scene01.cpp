@@ -22,11 +22,6 @@ void Scene01::Handle_events()
 		Game::Close();
 	}
 
-	if (Game::Keyboard.KeyIsPressed('X'))
-	{
-		G3D::LOG_INFO("BREAK!");
-	}
-
 	if (Game::Keyboard.KeyIsPressed(VK_RIGHT))
 	{
 		Game::GSM.Pop();
