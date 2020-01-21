@@ -90,7 +90,7 @@ void G3D::Camera::AdjustRotation(float x, float y, float z)
 void G3D::Camera::UpdateViewMatrix()
 {
 	//Calculate camera rotation matrix
-	DirectX::XMMATRIX camRotationMatrix = DirectX::XMMatrixRotationRollPitchYaw(-mRot.x, -mRot.y, -mRot.z);
+	DirectX::XMMATRIX camRotationMatrix = DirectX::XMMatrixRotationRollPitchYaw(mRot.x, mRot.y, mRot.z);
 
 	//Calculate unit vector of cam target based off camera forward value transformed by cam rotation.
 	DirectX::XMVECTOR camDir = DirectX::XMVector3TransformCoord(DEFAULT_FORWARD_VECTOR, camRotationMatrix);

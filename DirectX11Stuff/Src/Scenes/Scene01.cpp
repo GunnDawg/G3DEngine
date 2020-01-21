@@ -49,6 +49,31 @@ void Scene01::Handle_events()
 		Game::Camera.AdjustPosition(0.0f, 0.0f, -0.1f);
 	}
 
+	if (Game::Keyboard.KeyIsPressed('Z'))
+	{
+		Game::Camera.AdjustPosition(0.0f, -0.1f, 0.0f);
+	}
+
+	if (Game::Keyboard.KeyIsPressed(VK_SPACE))
+	{
+		Game::Camera.AdjustPosition(0.0f, 0.1f, 0.0f);
+	}
+
+	if (Game::Keyboard.KeyIsPressed('Z'))
+	{
+		Game::Camera.AdjustPosition(0.0f, -0.1f, 0.0f);
+	}
+
+	if (Game::Keyboard.KeyIsPressed('Q'))
+	{
+		Game::Camera.AdjustRotation(0.0f, 0.0f, -0.1f);
+	}
+
+	if (Game::Keyboard.KeyIsPressed('E'))
+	{
+		Game::Camera.AdjustRotation(0.0f, 0.0f, 0.1f);
+	}
+
 	const auto e = Game::Mouse.Read();
 	//if (e.GetType() == G3D::Mouse::Event::Type::Move)
 	//{
@@ -57,8 +82,7 @@ void Scene01::Handle_events()
 
 	if (e.GetType() == G3D::Mouse::Event::Type::RAW_MOVE)
 	{
-
-		Game::Camera.AdjustRotation((float)Game::Mouse.GetDeltaX(), (float)Game::Mouse.GetDeltaY(), 0.0f);
+		Game::Camera.AdjustRotation((float)Game::Mouse.GetDeltaY() * 0.02, (float)Game::Mouse.GetDeltaX() * 0.02, 0.0f);
 	}
 
 	if (e.GetType() == G3D::Mouse::Event::Type::LPress)

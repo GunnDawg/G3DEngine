@@ -131,7 +131,8 @@ void Square::Update()
 {
 	HRESULT Result = 0u;
 
-	DirectX::XMMATRIX world = DirectX::XMMatrixRotationY(Game::Timer.Peek()) * DirectX::XMMatrixTranslation(0.0f, 0.0f, 4.0f);
+	//DirectX::XMMATRIX world = DirectX::XMMatrixRotationY(Game::Timer.Peek()) * DirectX::XMMatrixTranslation(0.0f, 0.0f, 4.0f);
+	DirectX::XMMATRIX world = DirectX::XMMatrixIdentity();
 
 	const CameraConstantBuffer cb =
 	{
