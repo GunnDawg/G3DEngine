@@ -50,21 +50,15 @@ void Scene01::Handle_events()
 	}
 
 	const auto e = Game::Mouse.Read();
-	if (e.GetType() == G3D::Mouse::Event::Type::Move)
-	{
-		
-	}
+	//if (e.GetType() == G3D::Mouse::Event::Type::Move)
+	//{
+	//	
+	//}
 
 	if (e.GetType() == G3D::Mouse::Event::Type::RAW_MOVE)
 	{
-		//std::string outmsg = "X: ";
-		//outmsg += std::to_string(e.GetPosX());
-		//outmsg += ", ";
-		//outmsg += "Y: ";
-		//outmsg += std::to_string(e.GetPosY());
-		//outmsg += "\n";
-		//OutputDebugStringA(outmsg.c_str());
-		Game::Camera.AdjustRotation((float)e.GetPosY() * 0.1f, (float)e.GetPosX() * 0.1f, 0.0f);
+
+		Game::Camera.AdjustRotation((float)e.GetPosY() * 0.00001f, (float)e.GetPosX() * 0.00001f, 0.0f);
 	}
 
 	if (e.GetType() == G3D::Mouse::Event::Type::LPress)
@@ -91,6 +85,7 @@ void Scene01::Handle_events()
 void Scene01::Update()
 {
 	s1.Update();
+	Game::Camera.AdjustRotation(0.5f, 0.5f, 0.0f);
 }
 
 void Scene01::Render(G3D::Renderer* renderer)

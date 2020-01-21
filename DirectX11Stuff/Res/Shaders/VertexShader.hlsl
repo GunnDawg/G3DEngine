@@ -4,9 +4,7 @@ struct VSOut
 	float4 pos : SV_POSITION;
 };
 
-
-
-cbuffer CameraBuffer
+cbuffer CameraBuffer : register(b0)
 {
 	matrix worldMatrix;
 	matrix viewMatrix;
