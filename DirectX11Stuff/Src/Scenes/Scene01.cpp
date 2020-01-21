@@ -58,7 +58,7 @@ void Scene01::Handle_events()
 	if (e.GetType() == G3D::Mouse::Event::Type::RAW_MOVE)
 	{
 
-		Game::Camera.AdjustRotation((float)e.GetPosY() * 0.00001f, (float)e.GetPosX() * 0.00001f, 0.0f);
+		Game::Camera.AdjustRotation((float)Game::Mouse.GetDeltaX(), (float)Game::Mouse.GetDeltaY(), 0.0f);
 	}
 
 	if (e.GetType() == G3D::Mouse::Event::Type::LPress)
@@ -85,7 +85,6 @@ void Scene01::Handle_events()
 void Scene01::Update()
 {
 	s1.Update();
-	Game::Camera.AdjustRotation(0.5f, 0.5f, 0.0f);
 }
 
 void Scene01::Render(G3D::Renderer* renderer)
