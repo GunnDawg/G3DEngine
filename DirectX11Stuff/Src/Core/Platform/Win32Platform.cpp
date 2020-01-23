@@ -140,10 +140,9 @@ int WINAPI WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdLine, in
 	MSG Msg = { 0u };
 	while (game->IsRunning())
 	{
-		DeltaClock::BeginTick();
-
 		//@Cleanup Does this windows message loop belong inside or outside of the delta time calculations?
 		//Is there a better place for it entirely?
+		DeltaClock::BeginTick();
 		while (PeekMessage(&Msg, nullptr, 0u, 0u, PM_REMOVE))
 		{
 			TranslateMessage(&Msg);

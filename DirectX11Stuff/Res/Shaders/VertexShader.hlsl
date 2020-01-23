@@ -11,7 +11,7 @@ cbuffer CameraBuffer : register(b0)
 	matrix projMatrix;
 };
 
-VSOut main( float4 pos : POSITION, float4 color : COLOR )
+VSOut main(float4 pos : POSITION, float4 color : COLOR)
 {
     matrix camera = transpose(mul(projMatrix, mul(viewMatrix, worldMatrix)));
 
