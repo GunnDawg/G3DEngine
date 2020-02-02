@@ -51,6 +51,8 @@ Square::Square()
 	D3D11_SUBRESOURCE_DATA sd;
 	ZeroMemory(&sd, sizeof(D3D11_SUBRESOURCE_DATA));
 	sd.pSysMem = vertices;
+	sd.SysMemPitch = 0u;
+	sd.SysMemSlicePitch = 0u;
 
 	Result = G3D::Renderer::Device->CreateBuffer(&vbd, &sd, &vertexBuffer);
 	if (FAILED(Result))
@@ -74,7 +76,7 @@ Square::Square()
 	Result = G3D::Renderer::Device->CreateBuffer(&ibd, &isd, &indexBuffer);
 	if (FAILED(Result))
 	{
-		G3D::LOG_ERROR("Error initialzing triangle!");
+		G3D::LOG_ERROR("Error initialzing square!");
 	}
 
 	//Load and compile shader files

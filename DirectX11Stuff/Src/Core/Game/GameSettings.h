@@ -4,7 +4,7 @@ namespace GameSettings::Display
 {
 	static u16 Width = 1920;
 	static u16 Height = 1080;
-	static bool Windowed = true;
+	static bool Windowed = false;
 	static bool VSync = true;
 }
 

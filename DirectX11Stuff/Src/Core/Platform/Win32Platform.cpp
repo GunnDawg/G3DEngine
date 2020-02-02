@@ -137,7 +137,8 @@ int WINAPI WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdLine, in
 		return(-1);
 	}
 
-	MSG Msg = { 0u };
+	MSG Msg;
+	ZeroMemory(&Msg, sizeof(MSG));
 	while (game->IsRunning())
 	{
 		//@Cleanup Does this windows message loop belong inside or outside of the delta time calculations?
@@ -166,7 +167,7 @@ int WINAPI WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdLine, in
 }
 
 //Only used for debug purposes to get a console.
-#ifdef WIN32
+#ifdef _WIN32
 	#ifdef _DEBUG
 	int main()
 	{

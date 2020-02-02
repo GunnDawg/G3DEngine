@@ -46,7 +46,7 @@ bool Game::Init(const WNDPROC& wndproc)
 	}
 
 	RAWINPUTDEVICE rid;
-
+	ZeroMemory(&rid, sizeof(RAWINPUTDEVICE));
 	rid.usUsagePage = 0x01;
 	rid.usUsage = 0x02;
 	rid.dwFlags = 0u;

@@ -1,4 +1,5 @@
 #pragma once
+
 //Target Windows Vista and later
 #define WINVER 0x0600
 #define _WIN32_WINNT 0x0600
@@ -62,13 +63,11 @@ typedef int32_t i32;
 typedef int64_t i64;
 
 //Standard library
-
 #include <memory>
 #include <vector>
 #include <array>
 
 //Internal files
-
 #include "Debugging/Log.h"
 #include "Debugging/BenchmarkTimer.h"
 #include "Core/Game/GameSettings.h"
