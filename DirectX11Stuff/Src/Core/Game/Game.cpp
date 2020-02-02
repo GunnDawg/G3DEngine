@@ -58,6 +58,8 @@ bool Game::Init(const WNDPROC& wndproc)
 		return(false);
 	}
 
+	Window->DisableCursor();
+
 	DeltaClock::Init();
 
 	std::unique_ptr<GameState> S1 = std::make_unique<Scene01>();
