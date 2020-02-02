@@ -1,14 +1,11 @@
 #pragma once
 
-
 struct ConstantBuffer
-
 {
 	DirectX::XMMATRIX transform;
 };
 
 struct CameraConstantBuffer
-
 {
 	DirectX::XMMATRIX worldMatrix;
 	DirectX::XMMATRIX viewMatrix;
@@ -16,7 +13,6 @@ struct CameraConstantBuffer
 };
 
 struct Square
-
 {
 	Square();
 	~Square() = default;

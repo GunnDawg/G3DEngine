@@ -1,6 +1,4 @@
 #pragma once
-
-
 #include "Core/Window/Win32Window.h"
 #include "Core/GameState/StateMachine.h"
 #include "Graphics/Renderer.h"
@@ -12,7 +10,6 @@
 #include "Scenes/Scene01.h"
 
 struct Game
-
 {
 	Game() = default;
 	~Game();
@@ -24,19 +21,16 @@ struct Game
 	//@Speed I don't even know if inlining these actually helps us here, I probably should have benchmarked it FIRST.
 	//Maybe do that soon.
 	inline void HandleInput() const
-
 	{
 		GSM.HandleEvents();
 	}
 
 	inline void Update() const
-
 	{
 		GSM.Update();
 	}
 
 	inline void Render() const
-
 	{
 		Renderer->Clear(DirectX::XMFLOAT4(0.0f, 0.0f, 0.0f, 1.0f));
 		GSM.Render(Renderer);
@@ -44,7 +38,6 @@ struct Game
 	}
 
 	inline void Shutdown() const
-
 	{
 		GSM.UnloadAll();
 		Renderer->Shutdown();

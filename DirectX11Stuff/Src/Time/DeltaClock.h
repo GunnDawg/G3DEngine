@@ -1,8 +1,6 @@
 #pragma once
 
-
 struct DeltaClock
-
 {
 	static void Init()
 	{

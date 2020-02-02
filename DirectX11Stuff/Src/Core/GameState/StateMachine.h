@@ -1,13 +1,10 @@
 #pragma once
-
 #include "GameState.h"
 #include "Graphics/Renderer.h"
 
 namespace G3D
-
 {
 	class GameStateMachine
-
 	{
 	public:
 		inline void Push(std::unique_ptr<GameState> states)
@@ -18,7 +15,6 @@ namespace G3D
 			mGameStates.emplace_back(std::move(states));
 			mGameStates.back()->On_enter();
 		}
-
 		inline void Pop()
 		{
 			if (!mGameStates.empty())
@@ -27,7 +23,6 @@ namespace G3D
 				mGameStates.pop_back();
 			}
 		}
-
 		inline void HandleEvents()
 		{
 			if (!mGameStates.empty())
@@ -35,7 +30,6 @@ namespace G3D
 				mGameStates.back()->Handle_events();
 			}
 		}
-
 		inline void Update()
 		{
 			if (!mGameStates.empty())
@@ -43,7 +37,6 @@ namespace G3D
 				mGameStates.back()->Update();
 			}
 		}
-
 		inline void Render(G3D::Renderer* renderer)
 		{
 			if (!mGameStates.empty())
@@ -51,7 +44,6 @@ namespace G3D
 				mGameStates.back()->Render(renderer);
 			}
 		}
-
 		inline void UnloadAll()
 		{
 			while (!mGameStates.empty())
@@ -59,7 +51,6 @@ namespace G3D
 				Pop();
 			}
 		}
-
 		std::vector<std::unique_ptr<GameState>> mGameStates;
 	};
 }

@@ -1,9 +1,7 @@
 #pragma once
-
 #include "Graphics/Renderer.h"
 
 struct GameState
-
 {
 	virtual void On_enter() = 0u;
 	virtual void On_exit() = 0u;

@@ -1,10 +1,8 @@
 #pragma once
-
 #include "Core/GameState/GameState.h"
 #include "Graphics/Renderer.h"
 
 class Scene02 : public GameState
-
 {
 public:
 	void On_enter() override;

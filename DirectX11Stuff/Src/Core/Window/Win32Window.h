@@ -1,11 +1,8 @@
 #pragma once
 
-
 namespace G3D
-
 {
 	class Window
-
 	{
 	public:
 		bool Init(const WNDPROC& wndproc);
@@ -18,9 +15,9 @@ namespace G3D
 				DestroyWindow(hWND);
 				hWND = nullptr;
 			}
+
 			UnregisterClass(WC.lpszClassName, GetModuleHandle(0u));
 		}
-
 	private:
 		HWND hWND;
 		WNDCLASSEX WC;

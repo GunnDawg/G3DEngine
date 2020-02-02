@@ -1,9 +1,7 @@
 #pragma once
-
 #include <D3D11.h>
 
 struct Triangle
-
 {
 	Triangle();
 	~Triangle()=default;

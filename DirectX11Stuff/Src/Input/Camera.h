@@ -1,5 +1,4 @@
 #pragma once
-
 #include <DirectXMath.h>
 
 namespace G3D

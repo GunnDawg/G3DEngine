@@ -7,7 +7,6 @@ Game* game = new Game();
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	LRESULT Result = 0u;
-
 	switch (msg)
 	{
 		case WM_CLOSE:

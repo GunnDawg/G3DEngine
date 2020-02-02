@@ -1,26 +1,20 @@
 #pragma once
-
 #include <queue>
 #include <bitset>
 
 namespace G3D
-
 {
 	class Keyboard
-
 	{
 	public:
 		class Event
-
 		{
 		public:
 			enum class Type
-
 			{
 				Press,
 				Release,
 				Invalid
-
 			};
 
 		private:
@@ -50,14 +44,12 @@ namespace G3D
 		Keyboard& operator= (const Keyboard& kb) = delete;
 
 		//Key event stuff
-
 		Event ReadKey();
 		inline bool KeyIsPressed(u16 keycode) const { return(keyStates[keycode]); }
 		inline bool KeyIsEmpty() const { return(keyBuffer.empty()); }
 		inline void FlushKey() { keyBuffer = std::queue<Event>(); }
 
 		//Char event stuff
-
 		u16 ReadChar();
 		inline bool CharIsEmpty() const { return(charBuffer.empty()); }
 		inline void FlushChar() { charBuffer = std::queue<u16>(); }
@@ -68,7 +60,6 @@ namespace G3D
 		};
 
 		//Autorepeat control
-
 		inline void EnableAutorepeat() { autorepeatEnabled = true; }
 		inline void DisableAutorepeat() { autorepeatEnabled = false; }
 		inline bool AutorepeatIsEnabled() const { return autorepeatEnabled; }

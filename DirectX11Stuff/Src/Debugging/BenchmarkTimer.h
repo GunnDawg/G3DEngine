@@ -1,13 +1,9 @@
 #pragma once
-
 #include <chrono>
 
 namespace G3D
-
 {
-
 	class Benchmarker
-
 	{
 	public:
 		Benchmarker()

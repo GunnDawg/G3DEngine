@@ -1,21 +1,16 @@
 #pragma once
-
 #include <queue>
 #include <bitset>
 
 namespace G3D
-
 {
 	class Mouse
-
 	{
 	public:
 		class Event
-
 		{
 		public:
 			enum class Type
-
 			{
 				LPress,
 				LRelease,
@@ -28,7 +23,6 @@ namespace G3D
 				Enter,
 				Leave,
 				Invalid
-
 			};
 
 		private:

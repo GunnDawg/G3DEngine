@@ -1,9 +1,7 @@
 #pragma once
-
 #include <D3D11.h>
 
 struct AdapterData
-
 {
 	AdapterData(IDXGIAdapter* pAdapter);
 	IDXGIAdapter* pAdapter = nullptr;
@@ -11,7 +9,6 @@ struct AdapterData
 };
 
 class AdapterReader
-
 {
 public:
 	static std::vector<AdapterData> GetAdapters();
