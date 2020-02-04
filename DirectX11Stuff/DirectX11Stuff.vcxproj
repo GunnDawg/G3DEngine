@@ -168,7 +168,6 @@
     <ClCompile Include="Src\Time\Timer.cpp" />
     <ClCompile Include="Src\Debugging\Log.cpp" />
     <ClCompile Include="Src\Graphics\Geometry\Square.cpp" />
-    <ClCompile Include="Src\Graphics\Geometry\Triangle.cpp" />
     <ClCompile Include="Src\Input\Keyboard.cpp" />
     <ClCompile Include="Src\Input\Mouse.cpp" />
     <ClCompile Include="Src\PCH.cpp">
@@ -199,7 +198,6 @@
     <ClInclude Include="Src\Core\Game\Game.h" />
     <ClInclude Include="Src\Debugging\Log.h" />
     <ClInclude Include="Src\Graphics\Geometry\Square.h" />
-    <ClInclude Include="Src\Graphics\Geometry\Triangle.h" />
     <ClInclude Include="Src\Graphics\Vertex.h" />
     <ClInclude Include="Src\Input\Keyboard.h" />
     <ClInclude Include="Src\Input\Mouse.h" />
