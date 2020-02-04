@@ -3,36 +3,35 @@
 
 std::vector<AdapterData> AdapterReader::GetAdapters()
 {
-	if (adapters.size() > 0)
-		return adapters;
+	if (Adapters.size() > 0)
+		return Adapters;
 
-	IDXGIFactory* pFactory = nullptr;
+	Microsoft::WRL::ComPtr<IDXGIFactory> pFactory = nullptr;
 
 	//Create DXGIFactory Object
-
 	HRESULT Result = 0;
-	Result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&pFactory);
+	Result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)pFactory.GetAddressOf());
 	if (FAILED(Result))
 	{
 		G3D::LOG_FATAL("Error creating DXGIFactory for enumerating adapters.");
 	}
 
-	IDXGIAdapter* pAdapter;
+	Microsoft::WRL::ComPtr<IDXGIAdapter> pAdapter = nullptr;;
 	UINT index = 0;
 	while (SUCCEEDED(pFactory->EnumAdapters(index, &pAdapter)))
 	{
-		adapters.emplace_back(AdapterData(pAdapter));
+		Adapters.emplace_back(AdapterData(pAdapter.Get()));
 		index += 1;
 	}
 
-	return adapters;
+	return Adapters;
 }
 
 AdapterData::AdapterData(IDXGIAdapter* pAdapter)
 {
-	this->pAdapter = pAdapter;
+	Adapter = pAdapter;
 	HRESULT Result = 0;
-	Result = pAdapter->GetDesc(&description);
+	Result = pAdapter->GetDesc(&Description);
 	if (FAILED(Result))
 	{
 		G3D::LOG_FATAL("Error getting video adapter description");
