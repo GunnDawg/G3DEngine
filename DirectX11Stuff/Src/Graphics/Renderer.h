@@ -8,7 +8,6 @@
 #pragma comment(lib, "D3D11.lib")
 #pragma comment(lib, "D3DX10.lib")
 #pragma comment(lib, "D3DX11.lib")
-#pragma comment(lib, "dxguid.lib")
 #pragma comment(lib, "DXGI.lib")
 
 template<typename T>
